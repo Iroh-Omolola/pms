@@ -274,6 +274,9 @@ color: #000000;
     .auth-form-container{
         width: 100%;
     }
+    .auth-success{
+        width: 390px;
+    }
   }
   @media screen and (max-width: 390px) {
     .auth {
@@ -285,15 +288,23 @@ color: #000000;
     .auth {
         width: 320px;
     }
-
+    .auth-success{
+        width: 370px;
+    }
   }
   @media screen and (max-width: 348px) {
     .auth {
+        width: 300px;
+    }
+    .auth-success{
         width: 300px;
     }
   }
   @media screen and (max-width: 320px) {
     .auth {
         width: 290px;
+    }
+    .auth-success{
+        width: 300px;
     }
   }
