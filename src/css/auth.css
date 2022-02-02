@@ -241,17 +241,17 @@ color: #000000;
     }
   }
   @media screen and (max-width: 520px) {
-    .auth-form-container{
+    .auth-success{
         width: 420px;
     }
   }
   @media screen and (max-width: 520px) {
-    .auth-form-container{
+    .auth-success{
         width: 400px;
     }
   }
   @media screen and (max-width: 478px) {
-    .auth-form-container{
+    .auth-success{
         width: 380px;
     }
   }
@@ -271,11 +271,8 @@ color: #000000;
    
   }
   @media screen and (max-width: 425px) {
-    .auth-form-container{
-        width: 100%;
-    }
     .auth-success{
-        width: 390px;
+        width: 320px;
     }
   }
   @media screen and (max-width: 390px) {
@@ -283,28 +280,29 @@ color: #000000;
         width: 300px;
     }
   }
-
+  @media screen and (max-width: 375px) {
+    .auth-success{
+        width: 280px;
+    }
+  }
   @media screen and (max-width: 380px) {
     .auth {
         width: 320px;
     }
-    .auth-success{
-        width: 370px;
-    }
+
   }
   @media screen and (max-width: 348px) {
     .auth {
         width: 300px;
     }
-    .auth-success{
-        width: 300px;
-    }
+
   }
   @media screen and (max-width: 320px) {
     .auth {
         width: 290px;
     }
     .auth-success{
-        width: 300px;
+        width: 280px;
     }
+
   }
