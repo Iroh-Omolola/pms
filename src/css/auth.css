@@ -272,7 +272,7 @@ color: #000000;
   }
   @media screen and (max-width: 425px) {
     .auth-form-container{
-        width: 320px;
+        width: 100%;
     }
   }
   @media screen and (max-width: 390px) {
@@ -304,5 +304,4 @@ color: #000000;
     .auth-form-container{
         width: 220px;
     }
-
   }

@@ -1,9 +1,8 @@
-import React,{createElement} from 'react';
+import React from 'react';
 import { Layout, Menu } from 'antd';
 import {
   SettingOutlined,
 } from '@ant-design/icons';
-import { useState } from 'react/cjs/react.development';
 import SubMenu from 'antd/lib/menu/SubMenu';
 import '../../../css/app-view.css';
 import { CgMenuRight } from 'react-icons/cg'
@@ -15,7 +14,7 @@ import { FaBell,FaSistrix, FaUserAlt } from "react-icons/fa";
 const { Header, Sider } = Layout;
 
 const Dashboard = () =>  {
-    const [state, setState] = useState({
+    const [state, setState] = React.useState({
         collapsed: false,
     })
  
@@ -44,7 +43,7 @@ const Dashboard = () =>  {
         <Layout className="site-layout">
           <Header className="site-layout-background-header">
             
-            {createElement(state.collapsed ? CgMenuRight : CgMenuRight, {
+            {React.createElement(state.collapsed ? CgMenuRight : CgMenuRight, {
               className: 'trigger',
               onClick: toggle,
             })}
