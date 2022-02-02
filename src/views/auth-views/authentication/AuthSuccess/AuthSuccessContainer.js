@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.min.css';
 import { Link } from 'react-router-dom'
-import '../auth.css'
+import '../../../../css/auth.css'
 import { Button } from 'antd';
 
 const AuthSuccessContainer = () => {
@@ -18,7 +18,7 @@ const AuthSuccessContainer = () => {
          <p>Your organization has been successfully created.</p>
        </div>
       <div className="btn-btn-dashboard">
-     <Link to='/dashboard'> <Button className='dashboard-button'>Go to Dashboard</Button></Link>
+     <Link to='/'> <Button className='dashboard-button'>Go to Dashboard</Button></Link>
       </div>
      </div>
   </div>;

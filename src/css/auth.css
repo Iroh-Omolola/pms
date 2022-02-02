@@ -1,14 +1,16 @@
 .auth-container{
     width: 100vw;
     height: 100vh;
-    background: url('../../../../public/assets/images/Ellipse\ 7.svg') left bottom no-repeat, 
-    url('../../../../public/assets/images/Group\ 27.svg') right top calc(22%) no-repeat,
+    background: url('../../public/assets/images/Ellipse\ 7.svg') left bottom no-repeat, 
+    url('../../public/assets/images/Group\ 27.svg') right top calc(22%) no-repeat,
       #F3F4F9 left top repeat;
     padding: 15px;
     background-size: 200px, 120px, auto;
+   
 }
 .auth-container-display{
     padding-top: 60px;
+    
 }
 .auth{
     width: 500px;
@@ -223,3 +225,84 @@ color: #000000;
     font-weight: 500;
     font-size: 13px;
 }
+
+/* Media quqeries */
+@media screen and (max-width: 529px) {
+    .auth {
+        width: 400px;
+    }
+    .auth-container{
+        width: 100%;
+        overflow-x: hidden !important;
+    }
+    .auth-form-container{
+        width: 100%;
+        overflow-x: hidden !important;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .auth-form-container{
+        width: 420px;
+    }
+  }
+  @media screen and (max-width: 520px) {
+    .auth-form-container{
+        width: 400px;
+    }
+  }
+  @media screen and (max-width: 478px) {
+    .auth-form-container{
+        width: 380px;
+    }
+  }
+  @media screen and (max-width: 443px) {
+    .auth {
+        width: 380px;
+    }
+    .ant-checkbox+span {
+        width: 300px;
+    }
+  }
+  
+  @media screen and (max-width: 443px) {
+    .auth {
+        width: 350px;
+    }
+   
+  }
+  @media screen and (max-width: 425px) {
+    .auth-form-container{
+        width: 320px;
+    }
+  }
+  @media screen and (max-width: 390px) {
+    .auth {
+        width: 300px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    .auth-form-container{
+        width: 280px;
+    }
+  }
+  @media screen and (max-width: 380px) {
+    .auth {
+        width: 320px;
+    }
+
+  }
+  @media screen and (max-width: 348px) {
+    .auth {
+        width: 300px;
+    }
+
+  }
+  @media screen and (max-width: 320px) {
+    .auth {
+        width: 290px;
+    }
+    .auth-form-container{
+        width: 220px;
+    }
+
+  }

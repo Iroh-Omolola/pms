@@ -1,0 +1,52 @@
+.site-layout-content{
+    margin-left: 10px;
+   
+}
+.complete-general-container{
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
+  width: 98%;
+  height: 310px;
+  padding: 30px;
+}
+.password-title-h3{
+  font-size: 15px;
+}
+.breadcumb-subtitle.active a{
+  color: #6B51DF;
+}
+.breadcumb-subtitle a:hover{
+  color: #6B51DF;
+}
+.breadcumb-subtitle.active a:hover{
+    color: #242E3E;
+  }
+.general-sub-title{
+    justify-content: space-between;
+    width: 200px;
+    display: flex;
+}
+.mini-password{
+  margin-right :0px;
+  margin-bottom :0px;
+  margin-left :0px;
+}
+.action-btn{
+  width: 195px;
+  justify-content: space-between;
+  display: flex;
+  margin-top: 20px;
+}
+.update-btn, .cancel-btn{
+  border-radius: 10px;
+  width: 90px;
+  color: #FFFFFF;
+  font-size: 13px;
+}
+.cancel-btn{ 
+  background: #eb7676;
+}
+.update-btn{
+  background: #6B51DF;
+}

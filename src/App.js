@@ -8,15 +8,18 @@ import Dashboard from './views/app-views/Dashboard/Dashboard';
 
 
 const App = () => {
+
   const routes = useRoutes([
-    { path: "/login",  element: <Login/>},
+    {  path: "/login",  element: <Login/>},
     { path: "/register",  element: <Register/>},
     { path: "/auth-success",  element: <AuthSuccess/>},
-    { path: "/dashboard",  element: <Dashboard/>},
+    {
+      path: '*', element: <Dashboard />
+    }
   ]);
 
-
-  return routes
+  return [routes]
+  
 };
 
  

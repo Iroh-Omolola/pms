@@ -1,0 +1,128 @@
+.layout::-webkit-scrollbar {
+   
+display: none;
+
+}
+.site-layout-background-header{
+    background: #fff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    border-radius: none;
+    height: 60px;
+    padding: 0;
+    display: flex;
+}
+.profile-header{
+    margin-top: 80px;
+}
+.notify-user-icon{
+    color: #676B71;
+    font-size: 16px;
+    font-weight: bold;
+}
+.search-icon{
+ margin-left: 50px;
+ margin-right: 10px;
+}
+.search{
+    width: 200px;
+    height: 50px;
+    outline: none;
+    border: none;
+}
+.notification-user-container{
+    display: flex;
+    width: 8%;
+    justify-content: space-around;
+}
+.search-button-container{
+    border: transparent;
+    width: 300px;
+}
+.layout-header-mini-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  
+}
+.site-layout-content{
+    padding: 24px;
+    min-height: 596px;
+    max-height: fit-content
+}
+.logo {
+    background: #fff !important;
+    width: 100%;
+    height: 60px;
+    margin-top: 3px;
+    
+  }
+  .ant-layout-sider{
+      background: #fff;
+  }
+  ::selection {
+    color: #fff !important;
+    color: #6B51DF !important;
+}
+  .logo-img{
+      width: 60px;
+      height: 30px;
+      margin-top: 18px;
+      margin-left: 20px;
+  }
+  #components-layout-demo-side .logo {
+    height: 32px;
+    margin: 16px;
+    background: #fff;
+  }
+  .menu-icon{
+      width: 20px;
+      height: 20px;
+  }
+  .trigger{
+      font-size: 30px;
+      margin-left: 20px;
+      color: #6B51DF;
+      cursor: pointer;
+      margin-top: 15px;
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected{
+      background: none !important;
+      box-shadow: none;
+      color: #6B51DF;
+  }
+  .ant-menu-sub.ant-menu-inline{
+    background: none !important;
+    color: #343957
+  }
+  .ant-menu-light .ant-menu-item-active, .ant-menu-light  .ant-menu-item:hover .ant-menu-item-active, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open {
+    color: #6B51DF;
+}
+.ant-menu-submenu-selected {
+    color: #6B51DF;
+}
+.ant-menu-item-selected, .ant-menu-item-selected a, .ant-menu-item-selected a:hover {
+    color: #6B51DF;
+}
+
+.ant-menu-title-content>a:hover, .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-arrow, .ant-menu-submenu:hover>.ant-menu-submenu-title>.ant-menu-submenu-expand-icon  {
+    color: #6B51DF;
+}
+.ant-menu-inline-collapsed .ant-menu-submenu-arrow:before, .ant-menu-submenu-inline .ant-menu-submenu-arrow:before {
+    transform: rotate(-45deg) translateX(-2.5px);
+}
+.ant-menu-submenu-inline>.ant-menu-submenu-title>.ant-menu-submenu-arrow:after {
+    transform: rotate(45deg) translateX(-2.5px);
+}
+.ant-menu-inline .ant-menu-item:after, .ant-menu-vertical-left .ant-menu-item:after, .ant-menu-vertical-right .ant-menu-item:after, .ant-menu-vertical .ant-menu-item:after {
+    border-right: none;
+}
+.person-icon{
+    font-size: 18px !important;
+}
+.settings{
+    margin-left: 5px;
+}
+.sider-menu{
+    background: #FFFFFF;
+
+}

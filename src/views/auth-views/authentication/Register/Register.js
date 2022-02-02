@@ -1,6 +1,6 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
-import '../auth.css'
+import '../../../../css/auth.css'
 
 const Register = () => {
   return <div className="auth-container">

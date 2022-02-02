@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from './LoginForm';
-import '../auth.css'
+import '../../../../css/auth.css'
 
 const Login = () => {
   return <div className="auth-container">

@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.min.css';
 import { Link } from 'react-router-dom'
 import { Form, Input, Button} from 'antd';
-import '../auth.css'
+import '../../../../css/auth.css'
 
 const RegisterForm = () => {
     const onFinish = (values) => {

@@ -2,7 +2,7 @@ import React from 'react';
 import 'antd/dist/antd.min.css';
 import { Link } from 'react-router-dom'
 import { Form, Input, Button, Checkbox } from 'antd';
-import '../auth.css'
+import '../../../../css/auth.css'
 
 const LoginForm = () => {
     const onFinish = (values) => {

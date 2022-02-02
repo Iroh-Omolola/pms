@@ -1,0 +1,22 @@
+.profile-content h3{
+    color: #242E3E;
+    font-weight: 400;
+    font-size: 18px;
+    margin-top: 5px;
+}
+.profile-content p{
+    color: #30332E;
+    font-weight: 300;
+    font-size: 13px;
+    margin-top: -3px;
+}
+.profile-status{
+    color:  rgba(112, 112, 104, 0.5);
+    background: rgba(107, 81, 223, 0.2);
+    font-size: 15px;
+    padding-top: 5px;
+border-radius: 20px;
+height: 30px;
+width: 100px;
+text-align: center;
+}

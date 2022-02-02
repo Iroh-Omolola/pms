@@ -1,6 +1,6 @@
 import React from 'react';
 import AuthSuccessContainer from './AuthSuccessContainer';
-import '../auth.css'
+import '../../../../css/auth.css'
 
 const AuthSuccess = () => {
   return <div className="auth-container">
