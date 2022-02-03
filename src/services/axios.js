@@ -5,7 +5,6 @@ import authService from './auth';
 const defaultOptions = {
     // baseURL: process.env.REACT_APP_BASEURL,
     baseURL: 'http://206.189.112.218/api',
-    withCredentials: false,
 };
 
 // Update instance
