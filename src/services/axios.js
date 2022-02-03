@@ -8,12 +8,13 @@ const defaultOptions = {
 };
 
 // Update instance
-const instance = axios.create(defaultOptions);
+const instance = axios.create(defaultOptions)
 
 // Set the AUTH token for any request
 instance.interceptors.request.use(
     config => {
-        config.headers['authorization'] = `Bearer ${authService.getUserSession()}`
+        config.headers['authorization'] = `Bearer ${authService.getUserSession()}`;
+        config.headers['crossDomain'] =true;
         return config;
     },
     error => {

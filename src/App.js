@@ -13,9 +13,9 @@ const App = () => {
   const routes = useRoutes([
     {  path: "/login",  element: <Login/>},
     { path: "/register",  element: <Register/>},
-    { path: "/auth-success",  element: <AuthSuccess/>},
+    { path: "/auth-success",  element: user? <AuthSuccess/>: <Navigate to="/login"/>},
     {
-      path: '*', element: user ? <Dashboard />: <Navigate to="/login" />, 
+      path: '*', element: user ? <Dashboard />: <Navigate to="/login"/> 
     }
   ]);
 
