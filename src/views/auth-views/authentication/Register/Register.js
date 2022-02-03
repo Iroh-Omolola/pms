@@ -1,8 +1,13 @@
 import React from 'react';
 import RegisterForm from './RegisterForm';
+import connect from 'react-redux/es/connect/connect';
+import { Alert } from 'antd';
 import '../../../../css/auth.css'
 
-const Register = () => {
+
+
+const Register = ({error}) => {
+  
   return <div className="auth-container">
     <div className="auth-container-display">
     <div className='auth'>
@@ -11,6 +16,7 @@ const Register = () => {
     </div>
     <div className="logo-form-container">
       <p className='auth-text'>Create your organization</p>
+      {error?<Alert message={error===null?'Registration Successful!':error} type={error===null?"success":"error"} showIcon />:''}
       <RegisterForm/>
     </div>
       
@@ -19,4 +25,11 @@ const Register = () => {
   </div>;
 };
 
-export default Register;
+
+const stateProps = (state) => ({
+    error: state.ui.errors.register ,
+});
+
+
+export default connect(stateProps,{})(Register);
+

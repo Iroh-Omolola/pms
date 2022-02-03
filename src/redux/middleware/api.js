@@ -44,7 +44,7 @@ const apiRequest = ({ dispatch }) => next => action => {
         createAPIRequest(config)
             .then((response) => {
                 console.log('api-response', response);
-                const { data, refresh_token, message } = response;
+                const { data, success, message } = response;
                 if (data && data.first_page_url) {
                     const {
                         per_page,
@@ -57,14 +57,14 @@ const apiRequest = ({ dispatch }) => next => action => {
                     } = data;
                     dispatch(uiSetPagination(key, { per_page, total, last_page, current_page, prev_page_url, first_page_url, next_page_url }));
                 }
-                if (!_.isEmpty(refresh_token) && data) {
-                    dispatch(updateSessionToken(data));
+                if (!_.isEmpty(data.token) && data) {
+                    dispatch(updateSessionToken(data.token));
                 }
                 if (onSuccess) {
                     if (typeof onSuccess === 'function') {
                         onSuccess(data);
                     } else {
-                        dispatch({ type: onSuccess, payload: data });
+                        dispatch({ type: onSuccess, payload: {data} });
                     }
                 }
                 if (nextRoute) {
@@ -94,9 +94,10 @@ const apiRequest = ({ dispatch }) => next => action => {
                         showErrorMessage(e.message ? e.message : 'Check your internet connection.');
                     }
                 } else {
-                    const error = (e && e.data && e.data.message) || (e && e.error) || e;
-                    console.log('error:', error);
-                    dispatch(updateUIError(key, errorMessage || error));
+                    const error = (e && e.data && e.data.data) || (e && e.error) || e;
+                    console.log('error:', error.data.errors);
+                    dispatch(updateUIError(key, error.data.errors?.password? error.data.errors?.password[0]:error.data.errors?.email[0] || error.data.message  
+                                                ));
                     showErrorMessage(error ? error : 'Check your internet connection.');
                 }
                 dispatch(stopLoading(key));

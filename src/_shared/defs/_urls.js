@@ -10,9 +10,9 @@ export const APP = {
 
 
 export const API = {
-    LOGIN: '/login',
+    LOGIN: '/user-login',
     REGISTER: '/register', 
-    GET_ORGANIZATION: '/settings/get-orgaizations/6',
+    GET_ORGANIZATION: '/settings/get-organization/6',
     UPDATE_ORGANIZATION: '/settings/update-organization',
     LOGOUT: '/logout',    
 };

@@ -14,7 +14,7 @@ const appReducer = (state = defaultState, action) => {
             return Object.assign({}, state, {
                 user: {
                     ...state.user,
-                    session: action.payload,
+                    data: action.payload,
                 }
             });
        

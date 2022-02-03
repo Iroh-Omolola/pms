@@ -16,9 +16,9 @@ const register = ({ dispatch }) => next => action => {
                 noErrorToast: true,
                 onSuccess: data => {
                     if(data){
-                        dispatch(navigateTo(`${APP.REGISTER}`));
+                        dispatch(navigateTo(`${APP.LOGIN}`));
                     }else{
-                        dispatch(updateUIError('register', ''));
+                        dispatch(updateUIError('register', 'wrong details!'));
                     }
                     dispatch({ type: REGISTER.SUCCESS, payload: data });
                    
@@ -40,7 +40,7 @@ const login = ({ dispatch }) => next => action => {
                 noErrorToast: true,
                 onSuccess: data => {
                     if(data){
-                        dispatch(navigateTo(`${APP.DASHBOARD}`));
+                        dispatch(navigateTo(`${APP.AUTH_SUCCESS}`));
                     }else{
                         dispatch(updateUIError('login', 'Wrong login credentials'));
                     }
