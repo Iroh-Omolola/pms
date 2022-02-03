@@ -4,7 +4,7 @@ import authService from './auth';
 
 const defaultOptions = {
     // baseURL: process.env.REACT_APP_BASEURL,
-    baseURL: 'http://206.189.112.218/api',
+    baseURL: 'https://thingproxy.freeboard.io/fetch/http://206.189.112.218/api',
 };
 
 // Update instance
@@ -14,7 +14,6 @@ const instance = axios.create(defaultOptions)
 instance.interceptors.request.use(
     config => {
         config.headers['authorization'] = `Bearer ${authService.getUserSession()}`;
-        config.headers['crossDomain'] =true;
         return config;
     },
     error => {
