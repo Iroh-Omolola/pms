@@ -4,7 +4,7 @@ import authService from './auth';
 
 const defaultOptions = {
     // baseURL: process.env.REACT_APP_BASEURL,
-    baseURL: 'https://thingproxy.freeboard.io/fetch/http://206.189.112.218/api',
+    baseURL: 'http://206.189.112.218/api',
 };
 
 // Update instance
