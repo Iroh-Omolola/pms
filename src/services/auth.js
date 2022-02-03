@@ -11,7 +11,6 @@ class AuthService {
      */
     constructor() {
         this.getUserSession = this.getUserSession.bind(this);
-        this.isLoggedIn = this.isLoggedIn.bind(this);
     }
 
     /**
@@ -20,31 +19,31 @@ class AuthService {
     getUserSession() {
         const { getState } = store;
         const { app } = getState();
-        return app.user.session;
+        console.log(app?.user?.session)
+        return app?.user?.session;
     }
     getUser() {
         const { getState } = store;
         const { app } = getState();
-        console.log("appppp===", app.user.user)
+        console.log("appppp===", app?.user?.user)
     }
 
     /**
      * check auth token session
      */
-    isLoggedIn() {
-        const token = this.getUserSession();
-        if (token) {
-            try {
-                const decoded = jwtDecode(token);
-                const sessionTimeExp = decoded.exp;
-                return sessionTimeExp > new Date().getDate() / 1000;
-            } catch (e) {
-                console.log('token-decode-error:', e.message);
-                return false;
-            }
-        }
-        return false;
-    }
+    // isLoggedIn() {
+    //     const token = this.getUserSession();
+    //     if (token) {
+    //         try {
+    //             const decoded = jwtDecode(token);
+    //             const sessionTimeExp = decoded.exp;
+    //             return sessionTimeExp > new Date().getDate() / 1000;
+    //         } catch (e) {
+    //             return false;
+    //         }
+    //     }
+    //     return false;
+    // }
 }
 
 export default new AuthService();

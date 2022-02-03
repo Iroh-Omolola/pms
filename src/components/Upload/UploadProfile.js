@@ -30,7 +30,6 @@ const ProfileImage = () => {
                 />
                 <div className="camera" onClick={() => inputRef.current.click()}><MdOutlineLocalSee className="camera-icon"/> </div>
             </div>    
- 
         </div>
     )
 }

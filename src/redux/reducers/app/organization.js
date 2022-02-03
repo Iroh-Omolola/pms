@@ -6,6 +6,7 @@ const defaultState = {
 };
 
 const organizationReducer = (state = defaultState, action) => {
+    
     const { type, payload } = action;
     switch (type) {
         case UPDATE_ORGANIZATION.SUCCESS:

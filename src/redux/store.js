@@ -31,7 +31,7 @@ if (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__
 
 const persistedState = loadState();
 // create the store
-const store = createStore(rootReducer,  middleware);
+const store = createStore(rootReducer, persistedState,  middleware);
 store.subscribe(() => {
     saveState({ app: store.getState().app });
 });
