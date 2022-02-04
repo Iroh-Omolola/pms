@@ -33,9 +33,11 @@ const fetchOrganization = ({ dispatch }) => next => action => {
         dispatch(
             apiRequest({
                 method: GET,
-                url: `${API.GET_ORGANIZATION}`,
+                url: `${API.FETCH_ORGANIZATION}`,
                 key: key || 'fetchOrganization',
-                onSuccess: FETCH_ORGANIZATION.SUCCESS,
+                onSuccess: data => {
+                    dispatch({ type: FETCH_ORGANIZATION.SUCCESS })
+                },
                 ...rest,
             })
         )

@@ -66,11 +66,9 @@ const SystemSettings = (props) => {
     form.id=id;
       form.image_url=mediaPreview;
       console.log(form)
+      
       const submit= (e) =>{
         e.preventDefault()
-        // form.country=countryName
-        // form.image_url=mediaPreview
-
         updateOrganization(form)
 
         }
@@ -165,7 +163,7 @@ SystemSettings.defaultProps = defaultProps;
 
 const stateProps = (state) => ({
     isSubmitting: state.ui.loading.updateOrganization,
-    id:state.app.user.data.user.id,
+    id:state.app?.user?.data?.user.id,
     error: state.ui.errors.updateOrganization ,
 });
 

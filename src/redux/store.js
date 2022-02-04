@@ -29,25 +29,14 @@ if (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__
     middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
-const persistedState = loadState();
 // create the store
-const store = createStore(rootReducer, persistedState,  middleware);
+const store = createStore(rootReducer,  middleware);
 store.subscribe(() => {
     saveState({ app: store.getState().app });
 });
 
 export default store;
-function loadState() {
-    try {
-        const serializedState = localStorage.getItem('c-access-com');
-        if (serializedState === null) {
-            return undefined;
-        }
-        return JSON.parse(serializedState);
-    } catch (e) {
-        return undefined;
-    }
-}
+
 
 function saveState(state) {
     try {
