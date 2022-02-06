@@ -27,7 +27,6 @@ const apiRequest = ({ dispatch }) => next => action => {
             onError,
             successMessage,
             onSuccess,
-            errorMessage,
             nextRoute,
             noSuccessToast,
             noErrorToast,
@@ -43,8 +42,8 @@ const apiRequest = ({ dispatch }) => next => action => {
         dispatch(startLoading(key));
         createAPIRequest(config)
             .then((response) => {
-                console.log('api-response', response);
-                const { data, success, message } = response;
+                // console.log('api-response', response);
+                const { data, message } = response;
                 if (data && data.first_page_url) {
                     const {
                         per_page,
@@ -78,7 +77,7 @@ const apiRequest = ({ dispatch }) => next => action => {
                 }
             })
             .catch(e => {
-                console.log('err:', e);
+                // console.log('err:', e);
                 const showErrorMessage = message => {
                     if (!noErrorToast && method.toLowerCase() !== 'get') {
                         toast.error(message);
@@ -89,15 +88,14 @@ const apiRequest = ({ dispatch }) => next => action => {
                         onError(e);
                     } else {
                         const message = formatMessagesFromError(e);
-                        console.log('err-message:', message);
+                        // console.log('err-message:', message);
                         dispatch(updateUIError(key, message));
                         showErrorMessage(e.message ? e.message : 'Check your internet connection.');
                     }
                 } else {
                     const error = (e && e.data && e.data.data) || (e && e.error) || e;
-                    console.log('error:', error.data.errors);
-                    dispatch(updateUIError(key, error.data.errors?.password? error.data.errors?.password[0]:error.data.errors?.email[0] || error.data.message  
-                                                ));
+                    // console.log('error:', error.data.errors);
+                    dispatch(updateUIError(key, error.data.errors?.password? error.data?.errors?.password[0]:error.data?.errors?.email[0] || error.data.message));
                     showErrorMessage(error ? error : 'Check your internet connection.');
                 }
                 dispatch(stopLoading(key));

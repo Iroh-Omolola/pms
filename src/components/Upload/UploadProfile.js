@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { MdOutlineLocalSee } from "react-icons/md";
-import './upload.css'
+import '../../css/upload.css'
 
 const ProfileImage = () => {
     

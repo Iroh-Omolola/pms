@@ -2,11 +2,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
 import { createBrowserHistory } from 'history';
-import Cookies from 'universal-cookie';
 import customMiddleWares from '../redux/middleware';
 import appReducers from '../redux/reducers';
 
-const cookies = new Cookies();
 
 export const history = createBrowserHistory();
 
@@ -29,11 +27,7 @@ if (process.env.NODE_ENV !== 'production' && window.__REDUX_DEVTOOLS_EXTENSION__
     middleware = compose(middleware, window.__REDUX_DEVTOOLS_EXTENSION__());
 }
 
-const persistedState = loadState();
-// create the store
-// const store = createStore(reducers, preloadedState, composeEnhancers(
-//     applyMiddleware(...middlewares)
-//   ));
+
 const store = createStore(rootReducer, { ui:{
     errors: {},
     loading: {},
@@ -47,35 +41,13 @@ const store = createStore(rootReducer, { ui:{
 store.subscribe(() => {
     saveState({ app: store.getState().app });
 });
-/*
-{ ui:{
-    errors: {},
-    loading: {},
-    pagination: {
-        total: 0,
-        per_page: 10,
-        current_page: 1,
-    }
-}, app:[], router: [] }
-*/
+
 export default store;
 
-function loadState() {
-    try {
-        const serializedState = localStorage.getItem('c-access-com');
-        if (serializedState === null) {
-            return undefined;
-        }
-        return JSON.parse(serializedState);
-    } catch (e) {
-        return undefined;
-    }
-}
 
 function saveState(state) {
     try {
-        localStorage.setItem('c-access-com', JSON.stringify(state.app.user.session));
-        cookies.set('token', JSON.stringify(state.app.user.session));
-        localStorage.setItem('user', JSON.stringify(state.app.user.data.user.id));
+        localStorage.setItem('c-access-com', state.app.user.session); 
+        localStorage.setItem('user', state.app.user.data.user.id);
     } catch (e) { }
 }

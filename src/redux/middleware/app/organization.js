@@ -2,7 +2,6 @@
 import {  FETCH_ORGANIZATION, UPDATE_ORGANIZATION} from "../../actions/app";
 import { apiRequest, POST, GET } from '../../actions/index';
 import * as urls from '../../../_shared/defs/_urls';
-import _ from 'lodash';
 
 const { API } = urls;
 

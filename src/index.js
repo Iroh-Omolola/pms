@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './redux/store';
 import { BrowserRouter } from 'react-router-dom';

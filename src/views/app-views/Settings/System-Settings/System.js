@@ -5,11 +5,13 @@ import { MdOutlineLocalSee } from "react-icons/md";
 import { Alert } from 'antd';
 import React from 'react';
 import '../../../../css/systemSettings.css';
-import '../../../../components/Upload/upload.css';
+import '../../../../css/upload.css';
 import PropTypes from 'prop-types';
-import { updateOrganization, login } from '../../../../redux/actions';
+import { updateOrganization, login, resetOrganization } from '../../../../redux/actions';
 import connect from 'react-redux/es/connect/connect';
 import SpinLoad from '../../../../_shared/spin';
+import _ from 'lodash';
+import organization from '../../../../redux/middleware/app/organization';
 
 const { Option } = Select;
 
@@ -24,26 +26,35 @@ const defaultProps = {
   isSubmitting: false,
 };
 const id =localStorage.getItem('user');
-const initialState = {
-  id,
-  name: '',
-  vision: '',
-  street: '',
-  city: '',
-  state: '',
-}
+
+
 
 const SystemSettings = (props) => {
  
-  const { updateOrganization, error, isSubmitting} = props;
+  const { updateOrganization,resetOrganization, error, isSubmitting} = props;
 
-  const [form, setForm] = React.useState(initialState);
+  const [name, setName] = React.useState('');
+  const [vision, setVision] = React.useState('');
+  const [street, setStreet] = React.useState('');
+  const [city, setCity] = React.useState('');
+  const [state, setState] = React.useState('');
+
   const [countryName, setCountryName] = React.useState('');
+
   const inputRef = React.useRef();
     const [media, setMedia] = React.useState(null);
     const [mediaPreview, setMediaPreview] = React.useState(null);
 
-     
+    const formData = new FormData();
+
+    formData.append('name', name);
+    formData.append('vision', vision);
+    formData.append('street', street);
+    formData.append('city', city);
+    formData.append('state', state);
+    formData.append('country', countryName);
+    formData.append('image', media);
+
     const handleChange = e => {
         const { name,  files } = e.target;
     
@@ -57,23 +68,29 @@ const SystemSettings = (props) => {
         setCountryName(value)
       }
 
-      const handleInputChange = (e) => {
-        setForm({
-           ...form,
-           [e.target.name]: e.target.value, 
-           
-          });
-    }
-      // form.country=countryName;
-      // form.image_url=mediaPreview;
-       console.log(form)
-
-
       const submit= (e) =>{
         e.preventDefault()
-         updateOrganization(form)
-        }
+        const values=formData.values()
+    
+        const payload = {
+          ...values,  
+          name:  formData.get('name'),
+          image:  formData.get('image'),
+           vision:  formData.get('vision'),
+           street:  formData.get('street'),
+          city:  formData.get('city'),
+           state:  formData.get('state'),
+          country:  formData.get('country'),
 
+        }
+        updateOrganization(payload, {id:Number(id)})
+
+        if(!_.isEmpty(organization)) {
+          resetOrganization();
+        }
+           
+        
+      }
      
      
   return <Content
@@ -83,11 +100,11 @@ const SystemSettings = (props) => {
         <h6 className='breadcumb-title'>System Settings</h6>
         <p className='breadcumb-subtitle'>Organization Profile</p>
         <hr className='header-rule'/>
+        {error?<Alert message={error===null?'Login Successful!':error} type={error===null?"success":"error"} showIcon />:''}
   </Breadcrumb>
 
 <div className="complete-systems-container">
  <div className="Upload-container">
-
 
  <div>
             <div className="camera-containers">
@@ -108,29 +125,29 @@ const SystemSettings = (props) => {
  </div>
  <div className="profile-content">
     <label for="org_name">Organization Name *</label>
-     <Input type="text" name='name' className='profile-input' placeholder='Organization Name' onChange={handleInputChange} />
+     <Input type="text" name='name' className='profile-input' placeholder='Organization Name'  onChange={(e)=> setName(e.target.value)} />
  </div>
 </div>
 <hr className='profile-header'/>
-{error?<Alert message={error===null?'Login Successful!':error} type={error===null?"success":"error"} showIcon />:''}
+
 <div className="organization-vision">
     <h3 className='vision-title'>Organization Vision</h3>
     <p className='vision-subtitle'>Vision</p>
-    <Input type="text" name="vision" className='vision-input' placeholder='To be the preferred technology partner by 2025' onChange={handleInputChange} />
+    <Input type="text" name="vision" className='vision-input' placeholder='To be the preferred technology partner by 2025'  onChange={(e)=> setVision(e.target.value)} />
 </div>
 <hr />
 <div className="organization-vision">
     <h3 className='vision-title'>Organization Address</h3>
     <p className='vision-subtitle'>Street</p>
-    <Input type="text" name="street" className='vision-input' placeholder='9B Akin-Ogunmade' onChange={handleInputChange} />
+    <Input type="text" name="street" className='vision-input' placeholder='9B Akin-Ogunmade'  onChange={(e)=> setStreet(e.target.value)}/>
     <div className='address-container'>
    <div>
         <p className='vision-subtitle'>City</p>
-    <Input type="text" name="city" className='vision-mini-input' placeholder='city' onChange={handleInputChange} />
+    <Input type="text" name="city" className='vision-mini-input' placeholder='city'  onChange={(e)=> setCity(e.target.value)} />
     </div>
     <div>
     <p className='vision-subtitle'>State</p>
-    <Input type="text" name="state" className='vision-mini-input' placeholder='state' onChange={handleInputChange} />
+    <Input type="text" name="state" className='vision-mini-input' placeholder='state' onChange={(e)=> setState(e.target.value)} />
     </div>
     {isSubmitting? <SpinLoad loading={true} />: ''}
     </div>
@@ -169,7 +186,9 @@ const stateProps = (state) => ({
 
 const dispatchProps = {
     updateOrganization,
-    login
+    login,
+    resetOrganization
+   
 };
 
 export default connect(stateProps, dispatchProps)(SystemSettings);

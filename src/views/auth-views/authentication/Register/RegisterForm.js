@@ -114,8 +114,6 @@ const RegisterForm = (props) => {
         <Input.Password  name="confirm" placeholder="password" />
       </Form.Item>
 
-     
-
       <Form.Item>
         <Button type="primary" htmlType="submit" className="login-form-button" disabled={isSubmitting}>
         Create

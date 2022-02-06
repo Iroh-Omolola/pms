@@ -19,13 +19,13 @@ class AuthService {
     getUserSession() {
         const { getState } = store;
         const { app } = getState();
-        console.log("token",app?.user?.session)
         return app?.user?.session;
     }
     getUser() {
         const { getState } = store;
         const { app } = getState();
-        console.log("appppp===", app?.user?.user)
+        // console.log("appppp===", app?.user?.user)
+        return app?.user?.user
     }
 
     /**

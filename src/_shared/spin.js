@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spin, Alert, Switch } from 'antd';
+import { Spin, } from 'antd';
 import '../css/spin.css'
 
 const SpinLoad=({loading, container})=> {
