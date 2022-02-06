@@ -40,9 +40,9 @@ const login = ({ dispatch }) => next => action => {
                 noErrorToast: true,
                 onSuccess: data => {
                     if(data){
-                        // dispatch(navigateTo(`${APP.AUTH_SUCCESS}`));
+                        dispatch(navigateTo(`${APP.AUTH_SUCCESS}`));
                     }else{
-                        // dispatch(updateUIError('login', 'Wrong login credentials'));
+                        dispatch(updateUIError('login', 'Wrong login credentials'));
                     }
                     dispatch({ type: LOGIN.SUCCESS, payload: data });
                    
