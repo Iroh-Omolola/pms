@@ -11,12 +11,10 @@ const App = () => {
   const user =localStorage.getItem('c-access-com')
 
   const routes = useRoutes([
-    {  path: "/login",  element: <Login/>},
+    { path: "/login",  element: <Login/>},
     { path: "/register",  element: <Register/>},
     { path: "/auth-success",  element: user? <AuthSuccess/>: <Navigate to="/login"/>},
-    {
-      path: '*', element: user ? <Dashboard />: <Navigate to="/login"/> 
-    }
+    { path: '*', element: user ? <Dashboard />: <Navigate to="/login"/> }
   ]);
 
   return [routes]

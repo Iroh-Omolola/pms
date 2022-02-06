@@ -3,7 +3,7 @@ import 'antd/dist/antd.min.css';
 import CompleteProfile from './CompleteProfile.js/CompleteProfile';
 import SystemSettings from './Settings/System-Settings/System';
 import GeneralSettings from './Settings/General-Settings/GeneralSettings';
-import PersonalSettings from './Settings/PersonalSettings';
+import PersonalSettings from './Settings/General-Settings/PersonalSettings';
 
 
 const MiniRoutes = () => {

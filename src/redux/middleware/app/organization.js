@@ -17,8 +17,7 @@ const updateOrganizataion = ({ dispatch }) => next => action => {
                 url: `${API.UPDATE_ORGANIZATION}`,
                 key: key || 'updateOrganization',
                 onSuccess: data => {
-                    dispatch({ type: UPDATE_ORGANIZATION.SUCCESS, payload: data });
-                   
+                    dispatch({ type: UPDATE_ORGANIZATION.SUCCESS});     
                 },
                 ...rest,
             })

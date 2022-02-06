@@ -7,7 +7,7 @@ import React from 'react';
 import '../../../../css/systemSettings.css';
 import '../../../../components/Upload/upload.css';
 import PropTypes from 'prop-types';
-import { updateOrganization,login } from '../../../../redux/actions';
+import { updateOrganization, login } from '../../../../redux/actions';
 import connect from 'react-redux/es/connect/connect';
 import SpinLoad from '../../../../_shared/spin';
 
@@ -23,9 +23,9 @@ const propsTypes = {
 const defaultProps = {
   isSubmitting: false,
 };
-
+const id =localStorage.getItem('user');
 const initialState = {
-  id:'',
+  id,
   name: '',
   vision: '',
   street: '',
@@ -34,7 +34,8 @@ const initialState = {
 }
 
 const SystemSettings = (props) => {
-  const { updateOrganization, id, error, isSubmitting} = props;
+ 
+  const { updateOrganization, error, isSubmitting} = props;
 
   const [form, setForm] = React.useState(initialState);
   const [countryName, setCountryName] = React.useState('');
@@ -42,6 +43,7 @@ const SystemSettings = (props) => {
     const [media, setMedia] = React.useState(null);
     const [mediaPreview, setMediaPreview] = React.useState(null);
 
+     
     const handleChange = e => {
         const { name,  files } = e.target;
     
@@ -57,20 +59,19 @@ const SystemSettings = (props) => {
 
       const handleInputChange = (e) => {
         setForm({
-           ...form, 
+           ...form,
            [e.target.name]: e.target.value, 
            
           });
     }
-    form.country=countryName;
-    form.id=id;
-      form.image_url=mediaPreview;
-      console.log(form)
-      
+      // form.country=countryName;
+      // form.image_url=mediaPreview;
+       console.log(form)
+
+
       const submit= (e) =>{
         e.preventDefault()
-        updateOrganization(form)
-
+         updateOrganization(form)
         }
 
      
@@ -111,7 +112,7 @@ const SystemSettings = (props) => {
  </div>
 </div>
 <hr className='profile-header'/>
-{error?<Alert message={error?'Login Successful!':error} type={error===null?"success":"error"} showIcon />:''}
+{error?<Alert message={error===null?'Login Successful!':error} type={error===null?"success":"error"} showIcon />:''}
 <div className="organization-vision">
     <h3 className='vision-title'>Organization Vision</h3>
     <p className='vision-subtitle'>Vision</p>
@@ -163,7 +164,6 @@ SystemSettings.defaultProps = defaultProps;
 
 const stateProps = (state) => ({
     isSubmitting: state.ui.loading.updateOrganization,
-    id:state.app?.user?.data?.user.id,
     error: state.ui.errors.updateOrganization ,
 });
 

@@ -5,12 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { ConnectedRouter } from 'connected-react-router';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
 import store, { history } from './redux/store';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <Provider store={store}>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
       <App />
       </BrowserRouter>
       </Provider>,

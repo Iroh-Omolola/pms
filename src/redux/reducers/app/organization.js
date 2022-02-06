@@ -20,4 +20,5 @@ const organizationReducer = (state = defaultState, action) => {
     }
 };
 
+
 export default organizationReducer;

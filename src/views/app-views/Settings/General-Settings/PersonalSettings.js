@@ -3,10 +3,10 @@ import { Breadcrumb } from 'antd';
 import { Layout } from 'antd';
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types';
-import { fetchOrganization } from '../../../redux/actions';
+import { fetchOrganization } from '../../../../redux/actions';
 import connect from 'react-redux/es/connect/connect';
-import '../../../css/personal.css'
-import ProfileImage from '../../../components/Upload/UploadProfile';
+import '../../../../css/personal.css'
+import ProfileImage from '../../../../components/Upload/UploadProfile';
 
 
 const { Content } = Layout;
